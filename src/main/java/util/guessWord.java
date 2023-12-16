@@ -10,6 +10,17 @@ import java.util.Scanner;
 public class guessWord {
     public static void guessWord(String selectedWord, String codeWordStr){
 
+        char [][] arrChar = {
+                {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
+                {' ',' ',' ',' ','_','_','_','_','_',' ',' '},
+                {' ',' ',' ',' ','|',' ',' ',' ','|',' ',' '},
+                {' ',' ',' ',' ','|',' ',' ',' ',' ',' ',' '},
+                {' ',' ',' ',' ','|',' ',' ',' ',' ',' ',' '},
+                {' ',' ',' ',' ','|',' ',' ',' ',' ',' ',' '},
+                {' ',' ',' ',' ','|',' ',' ',' ',' ',' ',' '},
+                {'_','_','_','/',' ','\\','_','_','_','_',' '}
+        };
+
         Scanner entLetra = new Scanner(System.in);
         
         System.out.println("----- Tente descobrir qual é palavra codificada -----");
@@ -21,16 +32,14 @@ public class guessWord {
         
         char[] chrSelectedWord = selectedWord.toCharArray();
         char[] chrCodeWordStr = codeWordStr.toCharArray();
-        
-
 
            while (!word.equals(selectedWord)) {
                if (somar) {
                   contador++;
-               }        
+               }
                
                if (contador ==7){
-                    drawForca.drawForca(contador);
+                    drawForca.drawForca(contador, arrChar);
                     System.out.println("  ##### Você não adivinhou a palavra escolhida #####");
                     System.out.println("        A palavra escolhida foi  \'"+selectedWord+"\'");
                 return;
@@ -39,7 +48,7 @@ public class guessWord {
              * A variavel somar controla o contador determinando se quando essa função for chamada
              * a matriz deve ser redesenhada com elementos da forca
              */
-            drawForca.drawForca(contador);
+            drawForca.drawForca(contador, arrChar);
             System.out.print("\n   Digite uma letra => ");
             char letra  =  entLetra.nextLine().toLowerCase().charAt(0); //<= recebe string e converte primeira posição como char
                 

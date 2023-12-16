@@ -4,17 +4,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
-
-import model.Word;
-
 
 /* Não é uma boa prática colocar todo acesso e processamento da api
 em uma mesma classe mas essa api retorna apenas uma string de um Json
@@ -27,9 +21,9 @@ entaõ nao seria preciso criar um service pra isso */
  * fromJson e passando a string e o modelo da classe .
  */
 
-public class getWord{
+public class getWord {
 
-    public  static String getWord() throws IOException {
+    public static String getWord() throws IOException {
 
   
        URL url = new URL("https://api.dicionario-aberto.net/random");
